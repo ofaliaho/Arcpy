@@ -15,11 +15,11 @@ excl_fields = ["Field1", "Field2", "Field3"]
 
 fieldList = arcpy.ListFields("feature_class_name")
 
-# Find unwanted fields and delete
+# Find unwanted field names and delete
 del_fields = []
 
 for field in fieldList:
   if field.baseName not in excl_fields:
-    del_fields.append(field.basName)
+    del_fields.append(field.baseName)
     
 arcpy.DeleteField_management("feature_class_name", del_fields)
